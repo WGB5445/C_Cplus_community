@@ -16,15 +16,17 @@ jobs:
       - uses: srt32/git-actions@v0.0.3
         with:
           args: git submodule update --init --recursive
-          
+
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: latest
+          extended: true
 
 
       - name: Build 
         run: hugo
+
       - uses: crazy-max/ghaction-github-pages@v2
         with:
           # 部署到 gh-pages 分支
