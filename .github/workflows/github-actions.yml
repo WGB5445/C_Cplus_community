@@ -1,5 +1,11 @@
 name: Auto Deploy hugo
-on: [push]
+on: 
+  push :
+    branches: [main]
+
+    workflow_dispatch:
+
+
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
@@ -12,12 +18,12 @@ jobs:
           hugo-version: latest
       - name: Build 
         run: hugo
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+      - uses: crazy-max/ghaction-github-pages@v2
         with:
-          deploy_key: ${{ secrets.TOKEN }} # secret 中设置好私钥
-          external_repository: WGB5445/C_Cplus_community  # Page 仓库
-          publish_branch: view  # Page 仓库的分支
-          publish_dir: / # 静态网页路径
-          commit_message: ${{ github.event.head_commit.message }}
-
+          # 部署到 gh-pages 分支
+          target_branch: view
+          # 部署目录为 VuePress 的默认输出目录
+          build_dir: public
+        env:
+          # @see https://docs.github.com/cn/actions/reference/authentication-in-a-workflow#about-the-github_token-secret
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
