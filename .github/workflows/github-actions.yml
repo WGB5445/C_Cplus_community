@@ -19,7 +19,7 @@ jobs:
 
           
       - uses: bahmutov/npm-install@v1
-      - run: npm install postcss-cli
+      - run: npm install 
 
 
       - name: Setup Hugo
@@ -30,7 +30,7 @@ jobs:
 
 
       - name: Build 
-        run: hugo
+        run: hugo --minify
 
       - uses: crazy-max/ghaction-github-pages@v2
         with:
