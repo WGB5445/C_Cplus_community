@@ -1,5 +1,8 @@
 baseURL = 'https://wgb5445.github.io/C_Cplus_community/'
 languageCode = 'zh-CN'
 title = 'C/C++ 中文社区'
-theme = "ananke"
+theme = "docsy"
 publishDir= 'C_Cplus_community'
+
+[params.ui.feedback]
+enable = true
