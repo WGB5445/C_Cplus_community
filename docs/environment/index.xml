@@ -1,0 +1,149 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>C/C++ 中文社区 –</title><link>https://wgb5445.github.io/C_Cplus_community/docs/environment/</link><description>Recent content on C/C++ 中文社区</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><atom:link href="https://wgb5445.github.io/C_Cplus_community/docs/environment/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: C/C++环境配置(vscode+mingw)</title><link>https://wgb5445.github.io/C_Cplus_community/docs/environment/c_c_plus%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://wgb5445.github.io/C_Cplus_community/docs/environment/c_c_plus%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</guid><description>
+&lt;h2 id="环境要求">环境要求：&lt;/h2>
+&lt;ul>
+&lt;li>64位 Windows 10 或 Windows 11 电脑&lt;/li>
+&lt;li>Vscode&lt;/li>
+&lt;li>Mingw&lt;/li>
+&lt;li>网络连接&lt;/li>
+&lt;/ul>
+&lt;h2 id="目的">目的&lt;/h2>
+&lt;p>在vscode上配置C/C++的编码、编译和调试环境，分别使用简单的GCC/G++方法和较为复杂但生产常用的CMake方法&lt;/p>
+&lt;ul>
+&lt;li>学习和使用C/C++的时候需要进行程序的编写运行和调试，常规IDE的体积较大，下载不便。&lt;/li>
+&lt;li>虽然IDE使用起来比较方便，但对于初学者来说，IDE中的很多功能都不需要，对于老手来说，很多功能可以自己配置，所以对于环境来说尽量要求轻便。&lt;/li>
+&lt;li>我们可以选择使用更为轻便的vscode进行编码、编译与调试，通过一些配置可以方便的实现IDE的大部分功能。&lt;/li>
+&lt;/ul>
+&lt;h2 id="步骤">步骤&lt;/h2>
+&lt;ol>
+&lt;li>下载mingw压缩包，解压并设置环境变量&lt;/li>
+&lt;li>下载cmake压缩包，解压并设置环境变量&lt;/li>
+&lt;li>下载vscode 安装&lt;/li>
+&lt;li>在vscode上安装C/C++、cmake、cmake tools、中文插件&lt;/li>
+&lt;li>创建文件夹并编写代码&lt;/li>
+&lt;li>设置使用gcc或g++编译、调试&lt;/li>
+&lt;li>另创建文件夹并使用CMake:Quick start 快速创建测试工程&lt;/li>
+&lt;li>设置使用cmake作为构建调试工具&lt;/li>
+&lt;li>总结两种方法的优劣&lt;/li>
+&lt;/ol>
+&lt;h2 id="一下载并设置mingw">一、下载并设置mingw&lt;/h2>
+&lt;h3 id="1-下载并解压">(1) 下载并解压&lt;/h3>
+&lt;p>  在&lt;a href="https://sourceforge.net/projects/mingw-w64/files/">mingw-w64&lt;/a>的下载页面找到&lt;strong>MinGW-W64 GCC-8.1.0&lt;/strong>下的&lt;strong>x86_64-posix-seh&lt;/strong>进行下载
+  下载后解压在一个可以长期保留的位置并记录下该文件夹下的bin文件路径&lt;br>
+&lt;strong>示例：&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-powershell" data-lang="powershell">D:\app\x86_64-8.1.0-release-posix-seh-rt_v6-rev0\mingw64\bin
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="2-设置环境变量">(2) 设置环境变量&lt;/h3>
+&lt;p>设置环境变量以便可以在系统全局找到mingw&lt;/p>
+&lt;ol>
+&lt;li>使用&lt;!-- raw HTML omitted -->Windows&lt;!-- raw HTML omitted --> + &lt;!-- raw HTML omitted -->R&lt;!-- raw HTML omitted -->键 打开 Windows运行窗口，输入 &lt;strong>sysdm.cpl&lt;/strong> 后选择 &lt;!-- raw HTML omitted -->高级&lt;!-- raw HTML omitted --> 选项卡中的 &lt;!-- raw HTML omitted -->环境变量&lt;!-- raw HTML omitted -->&lt;/li>
+&lt;li>在 &lt;!-- raw HTML omitted -->系统变量&lt;!-- raw HTML omitted --> 中找到 &lt;!-- raw HTML omitted -->Path&lt;!-- raw HTML omitted --> 变量 点击 &lt;!-- raw HTML omitted -->编辑&lt;!-- raw HTML omitted --> 按钮&lt;/li>
+&lt;li>在变量的最后一行后双击并添加刚才的mingw路径 ,添加完成后点击 &lt;!-- raw HTML omitted -->确定&lt;!-- raw HTML omitted -->&lt;/li>
+&lt;li>随后分别点击前几个页面的确定&lt;/li>
+&lt;li>使用&lt;!-- raw HTML omitted -->Windows&lt;!-- raw HTML omitted --> + &lt;!-- raw HTML omitted -->R&lt;!-- raw HTML omitted -->键 打开 Windows运行窗口，输入 &lt;strong>cmd&lt;/strong>， 后输入 gcc -v ,检查输出是否为刚才下载的mingw版本号&lt;br>
+&lt;strong>示例：&lt;/strong>&lt;/li>
+&lt;/ol>
+&lt;pre tabindex="0">&lt;code>C:\Users\WGB&amp;gt;gcc -v
+Using built-in specs.
+COLLECT_GCC=gcc
+COLLECT_LTO_WRAPPER=D:/app/x86_64-8.1.0-release-posix-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/lto-wrapper.exe
+Target: x86_64-w64-mingw32
+Configured with: ../../../src/gcc-8.1.0/configure --host=x86_64-w64-mingw32 --build=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --prefix=/mingw64 --with-sysroot=/c/mingw810/x86_64-810-posix-seh-rt_v6-rev0/mingw64 --enable-shared --enable-static --disable-multilib --enable-languages=c,c++,fortran,lto --enable-libstdcxx-time=yes --enable-threads=posix --enable-libgomp --enable-libatomic --enable-lto --enable-graphite --enable-checking=release --enable-fully-dynamic-string --enable-version-specific-runtime-libs --disable-libstdcxx-pch --disable-libstdcxx-debug --enable-bootstrap --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-gnu-as --with-gnu-ld --with-arch=nocona --with-tune=core2 --with-libiconv --with-system-zlib --with-gmp=/c/mingw810/prerequisites/x86_64-w64-mingw32-static --with-mpfr=/c/mingw810/prerequisites/x86_64-w64-mingw32-static --with-mpc=/c/mingw810/prerequisites/x86_64-w64-mingw32-static --with-isl=/c/mingw810/prerequisites/x86_64-w64-mingw32-static --with-pkgversion='x86_64-posix-seh-rev0, Built by MinGW-W64 project' --with-bugurl=https://sourceforge.net/projects/mingw-w64 CFLAGS='-O2 -pipe -fno-ident -I/c/mingw810/x86_64-810-posix-seh-rt_v6-rev0/mingw64/opt/include -I/c/mingw810/prerequisites/x86_64-zlib-static/include -I/c/mingw810/prerequisites/x86_64-w64-mingw32-static/include' CXXFLAGS='-O2 -pipe -fno-ident -I/c/mingw810/x86_64-810-posix-seh-rt_v6-rev0/mingw64/opt/include -I/c/mingw810/prerequisites/x86_64-zlib-static/include -I/c/mingw810/prerequisites/x86_64-w64-mingw32-static/include' CPPFLAGS=' -I/c/mingw810/x86_64-810-posix-seh-rt_v6-rev0/mingw64/opt/include -I/c/mingw810/prerequisites/x86_64-zlib-static/include -I/c/mingw810/prerequisites/x86_64-w64-mingw32-static/include' LDFLAGS='-pipe -fno-ident -L/c/mingw810/x86_64-810-posix-seh-rt_v6-rev0/mingw64/opt/lib -L/c/mingw810/prerequisites/x86_64-zlib-static/lib -L/c/mingw810/prerequisites/x86_64-w64-mingw32-static/lib '
+Thread model: posix
+gcc version 8.1.0 (x86_64-posix-seh-rev0, Built by MinGW-W64 project)
+&lt;/code>&lt;/pre>&lt;h2 id="二下载并设置cmake">二、下载并设置cmake&lt;/h2>
+&lt;h3 id="1-下载并解压-1">(1) 下载并解压&lt;/h3>
+&lt;p>  在&lt;a href="https://cmake.org/download/">CMake官网&lt;/a>中找到Windows x64 ZIP 并下载
+  下载后解压在一个可以长期保留的位置并记录下该文件夹下的bin文件路径&lt;br>
+&lt;strong>示例：&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-powershell" data-lang="powershell">D:\app\cmake-3.22.0-rc2-windows-x86_64\bin
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="2-设置环境变量-1">(2) 设置环境变量&lt;/h3>
+&lt;p>设置环境变量以便可以在系统全局找到CMake&lt;/p>
+&lt;ol>
+&lt;li>使用&lt;!-- raw HTML omitted -->Windows&lt;!-- raw HTML omitted --> + &lt;!-- raw HTML omitted -->R&lt;!-- raw HTML omitted -->键 打开 Windows运行窗口，输入 &lt;strong>sysdm.cpl&lt;/strong> 后选择 &lt;!-- raw HTML omitted -->高级&lt;!-- raw HTML omitted --> 选项卡中的 &lt;!-- raw HTML omitted -->环境变量&lt;!-- raw HTML omitted -->&lt;/li>
+&lt;li>在 &lt;!-- raw HTML omitted -->系统变量&lt;!-- raw HTML omitted --> 中找到 &lt;!-- raw HTML omitted -->Path&lt;!-- raw HTML omitted --> 变量 点击 &lt;!-- raw HTML omitted -->编辑&lt;!-- raw HTML omitted --> 按钮&lt;/li>
+&lt;li>在变量的最后一行后双击并添加刚才的CMake路径 ,添加完成后点击 &lt;!-- raw HTML omitted -->确定&lt;!-- raw HTML omitted -->&lt;/li>
+&lt;li>随后分别点击前几个页面的确定&lt;/li>
+&lt;li>使用&lt;!-- raw HTML omitted -->Windows&lt;!-- raw HTML omitted --> + &lt;!-- raw HTML omitted -->R&lt;!-- raw HTML omitted -->键 打开 Windows运行窗口，输入 &lt;strong>cmd&lt;/strong>， 后输入 cmake &amp;ndash;version ,检查输出是否为刚才下载的CMake版本号&lt;/li>
+&lt;/ol>
+&lt;p>&lt;strong>示例：&lt;/strong>&lt;/p>
+&lt;pre tabindex="0">&lt;code>C:\Users\WGB&amp;gt;cmake --version
+cmake version 3.22.0-rc2
+CMake suite maintained and supported by Kitware (kitware.com/cmake).
+&lt;/code>&lt;/pre>&lt;h2 id="三下载并解压vscode">三、下载并解压vscode&lt;/h2>
+&lt;h3 id="1-下载">(1) 下载&lt;/h3>
+&lt;p>  在&lt;a href="https://code.visualstudio.com/Download">vscode 官网&lt;/a>进行下载，可以选择64bit zip包下载，可以免去安装过程&lt;/p>
+&lt;h3 id="2-解压">(2) 解压&lt;/h3>
+&lt;p>  解压到可以长期保留的位置后对文件夹内的vscode.exe 创建快捷方式并拖到自己想要的地方，方便以后快捷打开&lt;/p>
+&lt;h2 id="四安装vscode插件">四、安装vscode插件&lt;/h2>
+&lt;h3 id="1-打开vscode的插件页面">(1) 打开vscode的插件页面&lt;/h3>
+&lt;p>  可以使用快捷键 &lt;!-- raw HTML omitted -->Ctrl&lt;!-- raw HTML omitted --> + &lt;!-- raw HTML omitted -->Shift&lt;!-- raw HTML omitted --> + &lt;!-- raw HTML omitted -->X&lt;!-- raw HTML omitted --> 打开插件页面搜索并安装如下几个插件&lt;/p>
+&lt;ul>
+&lt;li>C/C++ C、C++支持&lt;/li>
+&lt;li>Chinese 中文支持&lt;/li>
+&lt;li>CMake CMake支持&lt;/li>
+&lt;li>CMake Tools CMake工具套装
+  成功安装后再次打开时，整个vscode变为中文&lt;/li>
+&lt;/ul>
+&lt;h2 id="五使用gccg配置cc环境">五、使用GCC、G++配置C/C++环境&lt;/h2>
+&lt;p>使用GCC、G++配置环境比较适合较小的工程，一般作为验证程序的编写调试等等&lt;/p>
+&lt;h3 id="1-新建文件夹和代码">(1) 新建文件夹和代码&lt;/h3>
+&lt;ol>
+&lt;li>在电脑中新建一个文件夹并通过vscode的打开文件夹功能打开&lt;/li>
+&lt;li>在文件夹中创建一个 hello.c 文件，并填入一些简单的代码&lt;/li>
+&lt;/ol>
+&lt;pre tabindex="0">&lt;code>#include&amp;lt;stdio.h&amp;gt;
+int main()
+{
+printf(&amp;quot;hello,world\n&amp;quot;);
+}
+&lt;/code>&lt;/pre>&lt;ol start="3">
+&lt;li>创建后整个目录结构如下&lt;/li>
+&lt;/ol>
+&lt;pre tabindex="0">&lt;code>.
+└── hello.c
+&lt;/code>&lt;/pre>&lt;h3 id="2-配置mingw的路径">(2) 配置mingw的路径&lt;/h3>
+&lt;ol>
+&lt;li>通过&lt;!-- raw HTML omitted -->Ctrl&lt;!-- raw HTML omitted --> + &lt;!-- raw HTML omitted -->Shift&lt;!-- raw HTML omitted --> + &lt;!-- raw HTML omitted -->P&lt;!-- raw HTML omitted -->调出选项栏后，输入C/C++:Edit Configurations (UI) 并选择 &lt;!-- raw HTML omitted -->C/C++:Edit Configurations (UI)&lt;!-- raw HTML omitted -->&lt;/li>
+&lt;li>在编译器路径下的输入框中填入mingw64的gcc.exe的路径&lt;br>
+示例:&lt;/li>
+&lt;/ol>
+&lt;pre tabindex="0">&lt;code>D:\app\x86_64-8.1.0-release-posix-seh-rt_v6-rev0\mingw64\bin\gcc.exe
+&lt;/code>&lt;/pre>&lt;ol start="3">
+&lt;li>选择 IntelliSense 模式 为 windows-gcc-x64&lt;/li>
+&lt;/ol>
+&lt;h3 id="3-配置构建任务">(3) 配置构建任务&lt;/h3>
+&lt;p>通过配置构建任务可以方便的进行构建生成可执行文件，对于构建选项可以在生成的构建任务文件(.vscode/tasks.json)中修改&lt;/p>
+&lt;ol>
+&lt;li>随后将页面选为编辑 .c 文件的页面点击 工具栏上的&lt;!-- raw HTML omitted -->终端&lt;!-- raw HTML omitted -->(快捷键 &lt;!-- raw HTML omitted -->Alt&lt;!-- raw HTML omitted --> + &lt;!-- raw HTML omitted -->T&lt;!-- raw HTML omitted --> )&lt;/li>
+&lt;li>在弹出的菜单中选择 &lt;!-- raw HTML omitted -->配置默认生成任务&lt;!-- raw HTML omitted --> ，然后在出现的选项栏中选择刚才填入路径的 &lt;!-- raw HTML omitted -->gcc.exe 生成活动文件&lt;!-- raw HTML omitted -->&lt;/li>
+&lt;li>点击工具栏上的 &lt;!-- raw HTML omitted -->终端&lt;!-- raw HTML omitted -->(快捷键 &lt;!-- raw HTML omitted -->Alt&lt;!-- raw HTML omitted --> + &lt;!-- raw HTML omitted -->T&lt;!-- raw HTML omitted --> )，再点击&lt;!-- raw HTML omitted -->运行生成任务&lt;!-- raw HTML omitted -->来构建可执行文件 ，或使用快捷键&lt;!-- raw HTML omitted -->Ctrl&lt;!-- raw HTML omitted --> + &lt;!-- raw HTML omitted -->Shift&lt;!-- raw HTML omitted --> + &lt;!-- raw HTML omitted -->B&lt;!-- raw HTML omitted --> 直接构建可执行文件&lt;br>
+随后就可以看到在当前目录已经成功生成了执行文件hello.exe&lt;/li>
+&lt;li>可以在cmd命令行或者终端中通过命令 ./hello.exe 运行，并打印 Hello, world!&lt;/li>
+&lt;/ol>
+&lt;h3 id="4-配置调试">(4) 配置调试&lt;/h3>
+&lt;p>通过配置调试可以方便的打断点调试等&lt;/p>
+&lt;ol>
+&lt;li>将页面选为编辑 .c 文件的页面并点击 工具栏上的&lt;!-- raw HTML omitted -->运行&lt;!-- raw HTML omitted -->(快捷键 &lt;!-- raw HTML omitted -->Alt&lt;!-- raw HTML omitted --> + &lt;!-- raw HTML omitted -->R&lt;!-- raw HTML omitted --> )&lt;/li>
+&lt;li>在弹出的菜单中选择&lt;!-- raw HTML omitted -->添加配置&lt;!-- raw HTML omitted -->，随后在出现的选项栏中选择&lt;!-- raw HTML omitted -->C++(GDB/LLDB)&lt;!-- raw HTML omitted -->&lt;/li>
+&lt;li>随后页面会切换到调试模式，并显示调试的配置文件，默认不需要更改，切换回.c文件并在Print语句前打上红色断点&lt;/li>
+&lt;li>点击工具栏上的&lt;!-- raw HTML omitted -->运行&lt;!-- raw HTML omitted -->(快捷键 &lt;!-- raw HTML omitted -->Alt&lt;!-- raw HTML omitted --> + &lt;!-- raw HTML omitted -->R&lt;!-- raw HTML omitted --> )&lt;/li>
+&lt;li>在随后的菜单中点击&lt;!-- raw HTML omitted -->启动调试&lt;!-- raw HTML omitted -->，或直接点击 &lt;!-- raw HTML omitted -->F5&lt;!-- raw HTML omitted -->按键进行调试&lt;/li>
+&lt;li>随后页面跳转为调试模式并在断点处停止&lt;/li>
+&lt;/ol>
+&lt;h2 id="六使用cmake编译cc">六、使用CMake编译C/C++&lt;/h2>
+&lt;p>在一般的工程中会存在许多的源文件，通过CMake可以方便的构建较大工程，同时具有一定的跨平台能力，更为高级的操作可以细致查看CMake插件文档和CMake官方文档&lt;/p>
+&lt;h3 id="1-使用cmake构建">(1) 使用CMake构建&lt;/h3>
+&lt;ol>
+&lt;li>重新新建一个文件夹，并使用vscode进行打开操作&lt;/li>
+&lt;li>通过&lt;!-- raw HTML omitted -->Ctrl&lt;!-- raw HTML omitted --> + &lt;!-- raw HTML omitted -->Shift&lt;!-- raw HTML omitted --> + &lt;!-- raw HTML omitted -->P&lt;!-- raw HTML omitted -->调出选项栏后，输入CMake:Quick start 并选择 &lt;!-- raw HTML omitted -->CMake:Quick start&lt;!-- raw HTML omitted -->&lt;/li>
+&lt;li>随后输入新建的工程名称，这里选择填写 hello 作为工程名称&lt;/li>
+&lt;li>随后选择生成的文件类型，选择 &lt;!-- raw HTML omitted -->Executable&lt;!-- raw HTML omitted -->&lt;/li>
+&lt;li>这时在目录中自动创建CMakeLists.txt 和 main.c 文件&lt;/li>
+&lt;li>可以使用&lt;!-- raw HTML omitted -->Ctrl&lt;!-- raw HTML omitted --> + &lt;!-- raw HTML omitted -->Shift&lt;!-- raw HTML omitted --> + &lt;!-- raw HTML omitted -->P&lt;!-- raw HTML omitted -->调出选项栏后，输入CMake:Build 并选择 &lt;!-- raw HTML omitted -->CMake:Build&lt;!-- raw HTML omitted -->生成可执行文件，也可以通过快捷键&lt;!-- raw HTML omitted -->F7&lt;!-- raw HTML omitted --> 生成，生成的文件在./build/ 下 ，生成名称为第3步输入的工程名&lt;/li>
+&lt;li>可以在cmd命令行或者终端中通过命令 ./hello.exe 运行，并打印 Hello, world!&lt;/li>
+&lt;/ol>
+&lt;h3 id="2-使用cmake调试">(2) 使用CMake调试&lt;/h3>
+&lt;ol>
+&lt;li>可以使用&lt;!-- raw HTML omitted -->Ctrl&lt;!-- raw HTML omitted --> + &lt;!-- raw HTML omitted -->Shift&lt;!-- raw HTML omitted --> + &lt;!-- raw HTML omitted -->P&lt;!-- raw HTML omitted -->调出选项栏后，输入CMake:Debug 并选择 &lt;!-- raw HTML omitted -->CMake:Debug&lt;!-- raw HTML omitted -->进入调试界面，也可以通过快捷键&lt;!-- raw HTML omitted -->Ctrl&lt;!-- raw HTML omitted --> + &lt;!-- raw HTML omitted -->F5&lt;!-- raw HTML omitted --> 调试，同样可以先打断点进行调试&lt;/li>
+&lt;/ol>
+&lt;h2 id="五总结">五、总结&lt;/h2>
+&lt;p>  两种方法都可以对C/C++程序进行构建调试，其中GCC的方法适用于小型工程，对于稍大的工程使用CMake更为方便，但是CMake的功能对于初学者来说可能会造成困扰，不能很好的添加源文件，但是既然开始学习就应该选择更为广泛使用的工具，所以推荐大家使用CMake，&lt;/p></description></item></channel></rss>

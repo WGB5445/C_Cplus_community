@@ -1,0 +1,404 @@
+<!doctype html><html lang=en class=no-js>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=generator content="Hugo 0.89.0">
+<meta name=robots content="index, follow">
+<link rel="shortcut icon" href=/C_Cplus_community/favicons/favicon.ico>
+<link rel=apple-touch-icon href=/C_Cplus_community/favicons/apple-touch-icon-180x180.png sizes=180x180>
+<link rel=icon type=image/png href=/C_Cplus_community/favicons/favicon-16x16.png sizes=16x16>
+<link rel=icon type=image/png href=/C_Cplus_community/favicons/favicon-32x32.png sizes=32x32>
+<link rel=icon type=image/png href=/C_Cplus_community/favicons/android-36x36.png sizes=36x36>
+<link rel=icon type=image/png href=/C_Cplus_community/favicons/android-48x48.png sizes=48x48>
+<link rel=icon type=image/png href=/C_Cplus_community/favicons/android-72x72.png sizes=72x72>
+<link rel=icon type=image/png href=/C_Cplus_community/favicons/android-96x96.png sizes=96x96>
+<link rel=icon type=image/png href=/C_Cplus_community/favicons/android-144x144.png sizes=144x144>
+<link rel=icon type=image/png href=/C_Cplus_community/favicons/android-192x192.png sizes=192x192>
+<title>C++系列教程-1 入门 | C/C++ 中文社区</title>
+<meta name=description content="对于希望学习 C++ 的同学来说，需要有一些 c 语言的基础，例如：函数、 注释、结构体、if、switch、for、while、基本语法等等
+目的
+初步了解 C++ 的代码以及类、对象的概念。
+步骤
+
+了解 C++ 的特点
+通过 Hello，world 程序了解 C++ 与 C 语言程序的不同
+了 …">
+<meta property="og:title" content="C++系列教程-1 入门">
+<meta property="og:description" content="对于希望学习 C++ 的同学来说，需要有一些 c 语言的基础，例如：函数、 注释、结构体、if、switch、for、while、基本语法等等
+目的 初步了解 C++ 的代码以及类、对象的概念。
+步骤  了解 C++ 的特点 通过 Hello，world 程序了解 C++ 与 C 语言程序的不同 了解类的概念 了解类与对象的关系 通过类的代码了解 类是如何创建 通过类的代码了解 类的内部变量 通过类的代码了解 类的构造函数 通过类的代码了解 类的析构函数 通过类的代码了解 类的方法  一、C++ 的特点 C++中最基本的要素是 对象
+对象是程序中一个具体的事物，它可以表现为一个变量、一个结构体、一个函数。
+抛开C语言，抛开C++后，重新思考什么是面向对象 可以说，面向对象是尽可能的用人的思考方式，来实现整个程序，例如，我需要设计一个水龙头程序：
+ 如果是面向过程，我需要设计这个水龙头如果被拧，就尝试出水，被关掉就停止出水，按顺序的写完逻辑，然后去输入这个水龙头的状态，并输出。 如果是面向对象，我们优先设计的是水龙头都有什么功能，它可以打开，可以关闭，可以出水，可以停止出水。我们发现，水龙头的功能就这么几种，包括了输入和输出，只要我们调用打开水龙头，水龙头就会去调用出水功能，调用关闭水龙头，水龙头就会停止出水  这样我们的逻辑就清晰了很多，只需要考虑水龙头什么时候要打开，我就在哪里调用打开函数。
+如果你还是觉得有些不知所措，那也没有关系，通过整个教程会让你理解并使用面向对象的思路。
+二、Hello,world！ 学习一门编程语言，第一步就是运行一个最简单的程序：打印一行 Hello,world
+(1) C++ 的 hello,world #include<iostream>int main(){ std::cout<< &#34;Hello, world\n&#34;; return 0; } 通过编译生成后运行得到结果
+PS D:\code\C\build> .\helloworld.exe Hello, world! (2) C 的 hello,world 我们可以发现 C 程序和 C++ 程序的不同">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://wgb5445.github.io/C_Cplus_community/docs/c++/%E5%85%A5%E9%97%A8/c++%E5%85%A5%E9%97%A8/"><meta property="article:section" content="docs">
+<meta itemprop=name content="C++系列教程-1 入门">
+<meta itemprop=description content="对于希望学习 C++ 的同学来说，需要有一些 c 语言的基础，例如：函数、 注释、结构体、if、switch、for、while、基本语法等等
+目的 初步了解 C++ 的代码以及类、对象的概念。
+步骤  了解 C++ 的特点 通过 Hello，world 程序了解 C++ 与 C 语言程序的不同 了解类的概念 了解类与对象的关系 通过类的代码了解 类是如何创建 通过类的代码了解 类的内部变量 通过类的代码了解 类的构造函数 通过类的代码了解 类的析构函数 通过类的代码了解 类的方法  一、C++ 的特点 C++中最基本的要素是 对象
+对象是程序中一个具体的事物，它可以表现为一个变量、一个结构体、一个函数。
+抛开C语言，抛开C++后，重新思考什么是面向对象 可以说，面向对象是尽可能的用人的思考方式，来实现整个程序，例如，我需要设计一个水龙头程序：
+ 如果是面向过程，我需要设计这个水龙头如果被拧，就尝试出水，被关掉就停止出水，按顺序的写完逻辑，然后去输入这个水龙头的状态，并输出。 如果是面向对象，我们优先设计的是水龙头都有什么功能，它可以打开，可以关闭，可以出水，可以停止出水。我们发现，水龙头的功能就这么几种，包括了输入和输出，只要我们调用打开水龙头，水龙头就会去调用出水功能，调用关闭水龙头，水龙头就会停止出水  这样我们的逻辑就清晰了很多，只需要考虑水龙头什么时候要打开，我就在哪里调用打开函数。
+如果你还是觉得有些不知所措，那也没有关系，通过整个教程会让你理解并使用面向对象的思路。
+二、Hello,world！ 学习一门编程语言，第一步就是运行一个最简单的程序：打印一行 Hello,world
+(1) C++ 的 hello,world #include<iostream>int main(){ std::cout<< &#34;Hello, world\n&#34;; return 0; } 通过编译生成后运行得到结果
+PS D:\code\C\build> .\helloworld.exe Hello, world! (2) C 的 hello,world 我们可以发现 C 程序和 C++ 程序的不同">
+<meta itemprop=wordCount content="378">
+<meta itemprop=keywords content><meta name=twitter:card content="summary">
+<meta name=twitter:title content="C++系列教程-1 入门">
+<meta name=twitter:description content="对于希望学习 C++ 的同学来说，需要有一些 c 语言的基础，例如：函数、 注释、结构体、if、switch、for、while、基本语法等等
+目的 初步了解 C++ 的代码以及类、对象的概念。
+步骤  了解 C++ 的特点 通过 Hello，world 程序了解 C++ 与 C 语言程序的不同 了解类的概念 了解类与对象的关系 通过类的代码了解 类是如何创建 通过类的代码了解 类的内部变量 通过类的代码了解 类的构造函数 通过类的代码了解 类的析构函数 通过类的代码了解 类的方法  一、C++ 的特点 C++中最基本的要素是 对象
+对象是程序中一个具体的事物，它可以表现为一个变量、一个结构体、一个函数。
+抛开C语言，抛开C++后，重新思考什么是面向对象 可以说，面向对象是尽可能的用人的思考方式，来实现整个程序，例如，我需要设计一个水龙头程序：
+ 如果是面向过程，我需要设计这个水龙头如果被拧，就尝试出水，被关掉就停止出水，按顺序的写完逻辑，然后去输入这个水龙头的状态，并输出。 如果是面向对象，我们优先设计的是水龙头都有什么功能，它可以打开，可以关闭，可以出水，可以停止出水。我们发现，水龙头的功能就这么几种，包括了输入和输出，只要我们调用打开水龙头，水龙头就会去调用出水功能，调用关闭水龙头，水龙头就会停止出水  这样我们的逻辑就清晰了很多，只需要考虑水龙头什么时候要打开，我就在哪里调用打开函数。
+如果你还是觉得有些不知所措，那也没有关系，通过整个教程会让你理解并使用面向对象的思路。
+二、Hello,world！ 学习一门编程语言，第一步就是运行一个最简单的程序：打印一行 Hello,world
+(1) C++ 的 hello,world #include<iostream>int main(){ std::cout<< &#34;Hello, world\n&#34;; return 0; } 通过编译生成后运行得到结果
+PS D:\code\C\build> .\helloworld.exe Hello, world! (2) C 的 hello,world 我们可以发现 C 程序和 C++ 程序的不同">
+<link rel=preload href=/C_Cplus_community/scss/main.min.bd5285b713d3061549a6bfd34e5f4ec6775ede36672a3088260f0d420050647f.css as=style>
+<link href=/C_Cplus_community/scss/main.min.bd5285b713d3061549a6bfd34e5f4ec6775ede36672a3088260f0d420050647f.css rel=stylesheet integrity>
+<script src=https://code.jquery.com/jquery-3.5.1.min.js integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin=anonymous></script>
+</head>
+<body class=td-page>
+<header>
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+<a class=navbar-brand href=/C_Cplus_community/>
+<span class=navbar-logo></span><span class="text-uppercase font-weight-bold">C/C++ 中文社区</span>
+</a>
+<div class="td-navbar-nav-scroll ml-md-auto" id=main_navbar>
+<ul class="navbar-nav mt-2 mt-lg-0">
+<li class="nav-item mr-4 mb-2 mb-lg-0">
+<a class=nav-link href=/C_Cplus_community/about/><span>关于</span></a>
+</li>
+<li class="nav-item mr-4 mb-2 mb-lg-0">
+<a class=nav-link href=/C_Cplus_community/blog/><span>博客</span></a>
+</li>
+<li class="nav-item mr-4 mb-2 mb-lg-0">
+<a class="nav-link active" href=/C_Cplus_community/docs/><span class=active>文档</span></a>
+</li>
+</ul>
+</div>
+<div class="navbar-nav d-none d-lg-block"></div>
+</nav>
+</header>
+<div class="container-fluid td-outer">
+<div class=td-main>
+<div class="row flex-xl-nowrap">
+<aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+<div id=td-sidebar-menu class=td-sidebar__inner>
+<form class="td-sidebar__search d-flex align-items-center">
+<button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation">
+</button>
+</form>
+<nav class="collapse td-sidebar-nav" id=td-section-nav>
+<ul class="td-sidebar-nav__section pr-md-3 ul-0">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-c_cplus_communitydocs-li>
+<a href=/C_Cplus_community/docs/ title class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id=m-c_cplus_communitydocs><span>文档</span></a>
+<ul class=ul-1>
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-c_cplus_communitydocsc-li>
+<a href=/C_Cplus_community/docs/c++/ title class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-c_cplus_communitydocsc><span>C++系列教程</span></a>
+<ul class="ul-2 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id=m-c_cplus_communitydocsce585a5e997a8ce585a5e997a8-li>
+<a href=/C_Cplus_community/docs/c++/%E5%85%A5%E9%97%A8/c++%E5%85%A5%E9%97%A8/ class="align-left pl-0 active td-sidebar-link td-sidebar-link__page" id=m-c_cplus_communitydocsce585a5e997a8ce585a5e997a8><span class=td-sidebar-nav-active-item>C++系列教程-1 入门</span></a>
+</li>
+</ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-c_cplus_communitydocsenvironment-li>
+<a href=/C_Cplus_community/docs/environment/ title class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-c_cplus_communitydocsenvironment><span>环境配置</span></a>
+<ul class="ul-2 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-c_cplus_communitydocsenvironmentc_c_pluse78eafe5a283e9858de7bdae-li>
+<a href=/C_Cplus_community/docs/environment/c_c_plus%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-c_cplus_communitydocsenvironmentc_c_pluse78eafe5a283e9858de7bdae><span>C/C++环境配置(vscode+mingw)</span></a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</aside>
+<aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+</div>
+<div class=td-toc><nav id=TableOfContents>
+<ul>
+<li><a href=#目的>目的</a></li>
+<li><a href=#步骤>步骤</a></li>
+<li><a href=#一c-的特点>一、C++ 的特点</a></li>
+<li><a href=#二helloworld>二、Hello,world！</a>
+<ul>
+<li><a href=#1-c-的-helloworld>(1) C++ 的 hello,world</a></li>
+<li><a href=#2-c-的-helloworld>(2) C 的 hello,world</a></li>
+<li><a href=#3-分析-c-与-c-的-helloworld>(3) 分析 C 与 C++ 的 hello,world</a></li>
+</ul>
+</li>
+<li><a href=#三对象与类>三、对象与类</a>
+<ul>
+<li><a href=#1-类>(1) 类</a></li>
+<li><a href=#2--类与对象的关系>(2) 类与对象的关系</a></li>
+<li><a href=#3-类的代码>(3) 类的代码</a></li>
+</ul>
+</li>
+</ul>
+</nav></div>
+</aside>
+<main class="col-12 col-md-9 col-xl-8 pl-md-5" role=main>
+<nav aria-label=breadcrumb class="d-none d-md-block d-print-none">
+<ol class="breadcrumb spb-1">
+<li class=breadcrumb-item>
+<a href=https://wgb5445.github.io/C_Cplus_community/docs/>文档</a>
+</li>
+<li class=breadcrumb-item>
+<a href=https://wgb5445.github.io/C_Cplus_community/docs/c++/>C++系列教程</a>
+</li>
+<li class="breadcrumb-item active" aria-current=page>
+<a href=https://wgb5445.github.io/C_Cplus_community/docs/c++/%E5%85%A5%E9%97%A8/c++%E5%85%A5%E9%97%A8/>C++系列教程-1 入门</a>
+</li>
+</ol>
+</nav>
+<div class=td-content>
+<h1>C++系列教程-1 入门</h1>
+<header class=article-meta>
+</header>
+<p>对于希望学习 C++ 的同学来说，需要有一些 c 语言的基础，例如：函数、 注释、结构体、if、switch、for、while、基本语法等等</p>
+<h2 id=目的>目的</h2>
+<p>初步了解 C++ 的代码以及类、对象的概念。</p>
+<h2 id=步骤>步骤</h2>
+<ol>
+<li>了解 C++ 的特点</li>
+<li>通过 Hello，world 程序了解 C++ 与 C 语言程序的不同</li>
+<li>了解类的概念</li>
+<li>了解类与对象的关系</li>
+<li>通过类的代码了解 类是如何创建</li>
+<li>通过类的代码了解 类的内部变量</li>
+<li>通过类的代码了解 类的构造函数</li>
+<li>通过类的代码了解 类的析构函数</li>
+<li>通过类的代码了解 类的方法</li>
+</ol>
+<h2 id=一c-的特点>一、C++ 的特点</h2>
+<p>C++中最基本的要素是 <strong>对象</strong></p>
+<p><strong>对象</strong>是程序中一个具体的<strong>事物</strong>，它可以表现为一个变量、一个结构体、一个函数。<br>
+抛开C语言，抛开C++后，重新思考什么是面向对象
+可以说，面向对象是尽可能的用人的思考方式，来实现整个程序，例如，我需要设计一个水龙头程序：</p>
+<ul>
+<li>如果是<strong>面向过程</strong>，我需要设计这个水龙头如果被拧，就尝试出水，被关掉就停止出水，按顺序的写完逻辑，然后去输入这个水龙头的状态，并输出。</li>
+<li>如果是<strong>面向对象</strong>，我们优先设计的是水龙头都有什么功能，它可以打开，可以关闭，可以出水，可以停止出水。我们发现，水龙头的功能就这么几种，包括了输入和输出，只要我们调用打开水龙头，水龙头就会去调用出水功能，调用关闭水龙头，水龙头就会停止出水</li>
+</ul>
+<p>这样我们的逻辑就清晰了很多，只需要考虑水龙头什么时候要打开，我就在哪里调用打开函数。<br>
+如果你还是觉得有些不知所措，那也没有关系，通过整个教程会让你理解并使用面向对象的思路。</p>
+<h2 id=二helloworld>二、Hello,world！</h2>
+<p>学习一门编程语言，第一步就是运行一个最简单的程序：打印一行 Hello,world</p>
+<h3 id=1-c-的-helloworld>(1) C++ 的 hello,world</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C++ data-lang=C++><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e></span><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>(){
+    std<span style=color:#f92672>::</span>cout<span style=color:#f92672>&lt;&lt;</span> <span style=color:#e6db74>&#34;Hello, world</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>;
+    <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
+}
+</code></pre></div><p>通过编译生成后运行得到结果</p>
+<pre tabindex=0><code>PS D:\code\C\build&gt; .\helloworld.exe
+Hello, world!
+</code></pre><h3 id=2-c-的-helloworld>(2) C 的 hello,world</h3>
+<p>我们可以发现 C 程序和 C++ 程序的不同</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;stdio.h&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e></span><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>(){
+    printf(<span style=color:#e6db74>&#34;Hello, world</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>);
+    <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
+}
+</code></pre></div><p>但是通过编译生成后运行得到结果可以相同</p>
+<pre tabindex=0><code>PS D:\code\C\build&gt; .\helloworld.exe
+Hello, world!
+</code></pre><h3 id=3-分析-c-与-c-的-helloworld>(3) 分析 C 与 C++ 的 hello,world</h3>
+<ol>
+<li>
+<p>首先，可以发现 include 所包含的头文件不同</p>
+<ul>
+<li>在 C 语言中的标准输入输出是由 stdio.h 这个文件提供的，所提供的函数包括 printf ， scanf 等等</li>
+<li>在 C++ 中的标准输入和输出是由 iostream 这个文件提供，它提供的输入输出都是对象形式</li>
+</ul>
+</li>
+<li>
+<p>随后对于输出语句，两种语言也有所不同</p>
+<blockquote>
+<p>(在 c++ 程序中包含 stdio.h ，是可以在 c++ 中使用，如 printf 等 c 语言的函数)</p>
+</blockquote>
+<ul>
+<li>C 语言程序中使用的是 C 标准的 printf 输出函数</li>
+<li>C++ 程序中使用的是 cout 对象的流式传输 ，将 &#171; 符号的右端数据输出到左端的对象中，再有 cout 对象输出至屏幕，同时如果是基本数据类型直接输入到 cout 时也可以打印其内部值，如：</li>
+</ul>
+</li>
+</ol>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c++ data-lang=c++><span style=color:#66d9ef>int</span> num <span style=color:#f92672>=</span> <span style=color:#ae81ff>10</span>;
+std<span style=color:#f92672>::</span>cout<span style=color:#f92672>&lt;&lt;</span> num;
+<span style=color:#75715e>//输出的结果
+</span><span style=color:#75715e>// 10 
+</span></code></pre></div><p>所以由此来看，C++ 是对 C 语言的补充，使用对象的特性使得函数逻辑更为清晰</p>
+<h2 id=三对象与类>三、对象与类</h2>
+<p>前面说过了什么是对象，也通过 hello,world 的例子知道了 std::cout 是对象，但是类是什么？对象和类又是什么关系？</p>
+<h3 id=1-类>(1) 类</h3>
+<p>类其实就是抽象概念，比如：<br>
+我有两个杯子，他们都可以装水，他们都有花纹，都有杯盖，但是里面装的水不一样，一个是饮料一个是水<br>
+这时候对于杯子，我就可以抽象的认为，可以装液体，可以有杯盖，可以有花纹的物品叫杯子，这个杯子的概念就称为 &ldquo;杯子类&rdquo;</p>
+<h3 id=2--类与对象的关系>(2) 类与对象的关系</h3>
+<p>类与对象的关系可以说概念和实际的区别。<br>
+通过类创建对象，比如：
+用杯子类去创建两个杯子，他们有共同的性质，可以装液体可以有杯盖可以有花纹等等，他们可以一模一样，这两个杯子就成为对象，他们从一个概念变成了实物。<br>
+当然，创建的两个杯子可以完全一样也可以有不同的花纹、外形，这取决于创建杯子时所规定的 &ldquo;条件&rdquo; ，整个过程比较像一个工厂利用模具创建商品一样</p>
+<h3 id=3-类的代码>(3) 类的代码</h3>
+<p>通过概念来理解没有通过代码直观，所以通过类的代码来观察
+如：</p>
+<ul>
+<li>创建一个水杯类</li>
+<li>规定它的材料</li>
+<li>规定它的外形</li>
+<li>规定它的盖子</li>
+<li>规定它的花纹</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c++ data-lang=c++><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>CupBase</span>{
+    <span style=color:#75715e>//材料
+</span><span style=color:#75715e></span>    <span style=color:#75715e>//0 代表玻璃 ， 1 代表塑料
+</span><span style=color:#75715e></span>    <span style=color:#66d9ef>int</span> Material;
+
+    <span style=color:#75715e>//外形
+</span><span style=color:#75715e></span>    <span style=color:#75715e>//0 代表马克杯，1 代表保温杯
+</span><span style=color:#75715e></span>    <span style=color:#66d9ef>int</span> Shape;
+    
+    <span style=color:#75715e>//盖子
+</span><span style=color:#75715e></span>    <span style=color:#75715e>//0 代表没有盖子，1 代表有盖子
+</span><span style=color:#75715e></span>    <span style=color:#66d9ef>int</span> Cover;
+    
+    <span style=color:#75715e>//花纹
+</span><span style=color:#75715e></span>    <span style=color:#75715e>//0 代表没有花纹，1 代表有花纹
+</span><span style=color:#75715e></span>    <span style=color:#66d9ef>int</span> Pattern;
+
+    <span style=color:#75715e>//液体
+</span><span style=color:#75715e></span>    <span style=color:#75715e>//0 代表没有液体 ，1 代表有水
+</span><span style=color:#75715e></span>    <span style=color:#66d9ef>int</span> Water;
+
+    <span style=color:#75715e>//构造函数 
+</span><span style=color:#75715e></span>    CupBase(){
+        Material <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span> ;          <span style=color:#75715e>//材料默认为玻璃 
+</span><span style=color:#75715e></span>        Shape    <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span> ;          <span style=color:#75715e>//外形默认为马克杯
+</span><span style=color:#75715e></span>        Cover    <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span> <span style=color:#960050;background-color:#1e0010>；</span>         <span style=color:#75715e>//盖子默认没有盖子
+</span><span style=color:#75715e></span>        Pattern  <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span> <span style=color:#960050;background-color:#1e0010>；</span>         <span style=color:#75715e>//花纹默认没有花纹
+</span><span style=color:#75715e></span>        Water    <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span> ;          <span style=color:#75715e>//液体默认没有液体
+</span><span style=color:#75715e></span>    };
+
+    <span style=color:#75715e>//析构函数
+</span><span style=color:#75715e></span>    <span style=color:#f92672>~</span>CupBase(){
+        <span style=color:#75715e>//释放空间
+</span><span style=color:#75715e></span>    };
+
+    <span style=color:#75715e>//方法
+</span><span style=color:#75715e></span>    <span style=color:#75715e>//注水
+</span><span style=color:#75715e></span>    <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>WaterInjection</span>(){
+        Water <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>;
+    }
+
+    <span style=color:#75715e>//方法
+</span><span style=color:#75715e></span>    <span style=color:#75715e>//排水
+</span><span style=color:#75715e></span>    <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>drain</span>(){
+        Water <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+    }
+
+    <span style=color:#75715e>//方法
+</span><span style=color:#75715e></span>    <span style=color:#75715e>//查看有没有水
+</span><span style=color:#75715e></span>    <span style=color:#66d9ef>int</span>  <span style=color:#a6e22e>ShowWater</span>(){
+        <span style=color:#66d9ef>return</span> Water;
+    }
+}
+</code></pre></div><p>分析上段代码：</p>
+<ul>
+<li>class 比较像定义一个结构体，在使用结构体时，一般把需要使用的数据变量放在里面，以便分组管理，这体现了封装的思想。在 C++ 类里同样体现封装的概念，通过对变量的统一管理，实现对事物进行抽象。</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c++ data-lang=c++><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>CupBase</span>{
+
+}        
+</code></pre></div><ul>
+<li>内部变量 是描述类的属性的方法，可以通过定义不同的变量来让类具有各种属性，并使它们通过不同的值来产生不同的意义。</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c++ data-lang=c++>    <span style=color:#75715e>//材料
+</span><span style=color:#75715e></span>    <span style=color:#75715e>//0 代表玻璃 ， 1 代表塑料
+</span><span style=color:#75715e></span>    <span style=color:#66d9ef>int</span> Material;
+
+    <span style=color:#75715e>//外形
+</span><span style=color:#75715e></span>    <span style=color:#75715e>//0 代表马克杯，1 代表保温杯
+</span><span style=color:#75715e></span>    <span style=color:#66d9ef>int</span> Shape;
+    
+    <span style=color:#75715e>//盖子
+</span><span style=color:#75715e></span>    <span style=color:#75715e>//0 代表没有盖子，1 代表有盖子
+</span><span style=color:#75715e></span>    <span style=color:#66d9ef>int</span> Cover;
+    
+    <span style=color:#75715e>//花纹
+</span><span style=color:#75715e></span>    <span style=color:#75715e>//0 代表没有花纹，1 代表有花纹
+</span><span style=color:#75715e></span>    <span style=color:#66d9ef>int</span> Pattern;
+
+    <span style=color:#75715e>//液体
+</span><span style=color:#75715e></span>    <span style=color:#75715e>//0 代表没有液体 ，1 代表有水
+</span><span style=color:#75715e></span>    <span style=color:#66d9ef>int</span> Water;
+</code></pre></div><ul>
+<li>构造函数 是类的基本方法，它是通过类来创建对象的媒介，通过构造函数 构造一个对象，在构造函数中可以对类的变量赋予不同的值，来控制构造的对象的属性</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c++ data-lang=c++>    <span style=color:#75715e>//构造函数 
+</span><span style=color:#75715e></span>    CupBase(){
+        Material <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span> ;          <span style=color:#75715e>//材料默认为玻璃 
+</span><span style=color:#75715e></span>        Shape    <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span> ;          <span style=color:#75715e>//外形默认为马克杯
+</span><span style=color:#75715e></span>        Cover    <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span> <span style=color:#960050;background-color:#1e0010>；</span>         <span style=color:#75715e>//盖子默认没有盖子
+</span><span style=color:#75715e></span>        Pattern  <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span> <span style=color:#960050;background-color:#1e0010>；</span>         <span style=color:#75715e>//花纹默认没有花纹
+</span><span style=color:#75715e></span>        Water    <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span> ;          <span style=color:#75715e>//液体默认没有液体
+</span><span style=color:#75715e></span>    };
+</code></pre></div><ul>
+<li>析构函数 是类的基本方法，它是在对象生命周期结束时自动调用的，它与构造函数相反，它是销毁对象的函数，一般在里面释放掉对象的空间等。这里的例子中的空间都为基本类型，可以自动释放，所以析构函数为空</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c++ data-lang=c++>    <span style=color:#75715e>//析构函数
+</span><span style=color:#75715e></span>    <span style=color:#f92672>~</span>CupBase(){
+        <span style=color:#75715e>//释放空间
+</span><span style=color:#75715e></span>    };
+</code></pre></div><ul>
+<li>方法 是类的功能的表现，它是对象与外部的交互媒介，比如杯子可以加水和倒水，还可以看看杯子里是否有水，这时通过方法来操作和查看内部变量就能控制对象或者反馈给其他外部对象</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c++ data-lang=c++><span style=color:#75715e>//方法
+</span><span style=color:#75715e></span>    <span style=color:#75715e>//注水
+</span><span style=color:#75715e></span>    <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>WaterInjection</span>(){
+        Water <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>;
+    }
+
+    <span style=color:#75715e>//方法
+</span><span style=color:#75715e></span>    <span style=color:#75715e>//排水
+</span><span style=color:#75715e></span>    <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>drain</span>(){
+        Water <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+    }
+
+    <span style=color:#75715e>//方法
+</span><span style=color:#75715e></span>    <span style=color:#75715e>//查看有没有水
+</span><span style=color:#75715e></span>    <span style=color:#66d9ef>int</span>  <span style=color:#a6e22e>ShowWater</span>(){
+        <span style=color:#66d9ef>return</span> Water;
+    }
+</code></pre></div>
+</div>
+</main>
+</div>
+</div>
+<footer class="bg-dark py-5 row d-print-none">
+<div class="container-fluid mx-sm-5">
+<div class=row>
+<div class="col-6 col-sm-4 text-xs-center order-sm-2">
+</div>
+<div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+</div>
+<div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+<p class=mt-2><a href=/C_Cplus_community/about/></a></p>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js integrity=sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js integrity=sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF crossorigin=anonymous></script>
+<script src=/C_Cplus_community/js/tabpane-persist.js></script>
+<script src=/C_Cplus_community/js/main.min.562ca313d03cd8f453aee2fbc1ed407e22551d6a3b5435974806e5741a624cc4.js integrity="sha256-ViyjE9A82PRTruL7we1AfiJVHWo7VDWXSAbldBpiTMQ=" crossorigin=anonymous></script>
+</body>
+</html>

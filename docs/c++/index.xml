@@ -1,0 +1,199 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>C/C++ 中文社区 –</title><link>https://wgb5445.github.io/C_Cplus_community/docs/c++/</link><description>Recent content on C/C++ 中文社区</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><atom:link href="https://wgb5445.github.io/C_Cplus_community/docs/c++/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: C++系列教程-1 入门</title><link>https://wgb5445.github.io/C_Cplus_community/docs/c++/%E5%85%A5%E9%97%A8/c++%E5%85%A5%E9%97%A8/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://wgb5445.github.io/C_Cplus_community/docs/c++/%E5%85%A5%E9%97%A8/c++%E5%85%A5%E9%97%A8/</guid><description>
+&lt;p>对于希望学习 C++ 的同学来说，需要有一些 c 语言的基础，例如：函数、 注释、结构体、if、switch、for、while、基本语法等等&lt;/p>
+&lt;h2 id="目的">目的&lt;/h2>
+&lt;p>初步了解 C++ 的代码以及类、对象的概念。&lt;/p>
+&lt;h2 id="步骤">步骤&lt;/h2>
+&lt;ol>
+&lt;li>了解 C++ 的特点&lt;/li>
+&lt;li>通过 Hello，world 程序了解 C++ 与 C 语言程序的不同&lt;/li>
+&lt;li>了解类的概念&lt;/li>
+&lt;li>了解类与对象的关系&lt;/li>
+&lt;li>通过类的代码了解 类是如何创建&lt;/li>
+&lt;li>通过类的代码了解 类的内部变量&lt;/li>
+&lt;li>通过类的代码了解 类的构造函数&lt;/li>
+&lt;li>通过类的代码了解 类的析构函数&lt;/li>
+&lt;li>通过类的代码了解 类的方法&lt;/li>
+&lt;/ol>
+&lt;h2 id="一c-的特点">一、C++ 的特点&lt;/h2>
+&lt;p>C++中最基本的要素是 &lt;strong>对象&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>对象&lt;/strong>是程序中一个具体的&lt;strong>事物&lt;/strong>，它可以表现为一个变量、一个结构体、一个函数。&lt;br>
+抛开C语言，抛开C++后，重新思考什么是面向对象
+可以说，面向对象是尽可能的用人的思考方式，来实现整个程序，例如，我需要设计一个水龙头程序：&lt;/p>
+&lt;ul>
+&lt;li>如果是&lt;strong>面向过程&lt;/strong>，我需要设计这个水龙头如果被拧，就尝试出水，被关掉就停止出水，按顺序的写完逻辑，然后去输入这个水龙头的状态，并输出。&lt;/li>
+&lt;li>如果是&lt;strong>面向对象&lt;/strong>，我们优先设计的是水龙头都有什么功能，它可以打开，可以关闭，可以出水，可以停止出水。我们发现，水龙头的功能就这么几种，包括了输入和输出，只要我们调用打开水龙头，水龙头就会去调用出水功能，调用关闭水龙头，水龙头就会停止出水&lt;/li>
+&lt;/ul>
+&lt;p>这样我们的逻辑就清晰了很多，只需要考虑水龙头什么时候要打开，我就在哪里调用打开函数。&lt;br>
+如果你还是觉得有些不知所措，那也没有关系，通过整个教程会让你理解并使用面向对象的思路。&lt;/p>
+&lt;h2 id="二helloworld">二、Hello,world！&lt;/h2>
+&lt;p>学习一门编程语言，第一步就是运行一个最简单的程序：打印一行 Hello,world&lt;/p>
+&lt;h3 id="1-c-的-helloworld">(1) C++ 的 hello,world&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-C++" data-lang="C++">&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;iostream&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>(){
+std&lt;span style="color:#f92672">::&lt;/span>cout&lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;Hello, world&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>;
+&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>通过编译生成后运行得到结果&lt;/p>
+&lt;pre tabindex="0">&lt;code>PS D:\code\C\build&amp;gt; .\helloworld.exe
+Hello, world!
+&lt;/code>&lt;/pre>&lt;h3 id="2-c-的-helloworld">(2) C 的 hello,world&lt;/h3>
+&lt;p>我们可以发现 C 程序和 C++ 程序的不同&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-c" data-lang="c">&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;stdio.h&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>(){
+printf(&lt;span style="color:#e6db74">&amp;#34;Hello, world&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>);
+&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>但是通过编译生成后运行得到结果可以相同&lt;/p>
+&lt;pre tabindex="0">&lt;code>PS D:\code\C\build&amp;gt; .\helloworld.exe
+Hello, world!
+&lt;/code>&lt;/pre>&lt;h3 id="3-分析-c-与-c-的-helloworld">(3) 分析 C 与 C++ 的 hello,world&lt;/h3>
+&lt;ol>
+&lt;li>
+&lt;p>首先，可以发现 include 所包含的头文件不同&lt;/p>
+&lt;ul>
+&lt;li>在 C 语言中的标准输入输出是由 stdio.h 这个文件提供的，所提供的函数包括 printf ， scanf 等等&lt;/li>
+&lt;li>在 C++ 中的标准输入和输出是由 iostream 这个文件提供，它提供的输入输出都是对象形式&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>随后对于输出语句，两种语言也有所不同&lt;/p>
+&lt;blockquote>
+&lt;p>(在 c++ 程序中包含 stdio.h ，是可以在 c++ 中使用，如 printf 等 c 语言的函数)&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>C 语言程序中使用的是 C 标准的 printf 输出函数&lt;/li>
+&lt;li>C++ 程序中使用的是 cout 对象的流式传输 ，将 &amp;laquo; 符号的右端数据输出到左端的对象中，再有 cout 对象输出至屏幕，同时如果是基本数据类型直接输入到 cout 时也可以打印其内部值，如：&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-c++" data-lang="c++">&lt;span style="color:#66d9ef">int&lt;/span> num &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">10&lt;/span>;
+std&lt;span style="color:#f92672">::&lt;/span>cout&lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> num;
+&lt;span style="color:#75715e">//输出的结果
+&lt;/span>&lt;span style="color:#75715e">// 10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>所以由此来看，C++ 是对 C 语言的补充，使用对象的特性使得函数逻辑更为清晰&lt;/p>
+&lt;h2 id="三对象与类">三、对象与类&lt;/h2>
+&lt;p>前面说过了什么是对象，也通过 hello,world 的例子知道了 std::cout 是对象，但是类是什么？对象和类又是什么关系？&lt;/p>
+&lt;h3 id="1-类">(1) 类&lt;/h3>
+&lt;p>类其实就是抽象概念，比如：&lt;br>
+我有两个杯子，他们都可以装水，他们都有花纹，都有杯盖，但是里面装的水不一样，一个是饮料一个是水&lt;br>
+这时候对于杯子，我就可以抽象的认为，可以装液体，可以有杯盖，可以有花纹的物品叫杯子，这个杯子的概念就称为 &amp;ldquo;杯子类&amp;rdquo;&lt;/p>
+&lt;h3 id="2--类与对象的关系">(2) 类与对象的关系&lt;/h3>
+&lt;p>类与对象的关系可以说概念和实际的区别。&lt;br>
+通过类创建对象，比如：
+用杯子类去创建两个杯子，他们有共同的性质，可以装液体可以有杯盖可以有花纹等等，他们可以一模一样，这两个杯子就成为对象，他们从一个概念变成了实物。&lt;br>
+当然，创建的两个杯子可以完全一样也可以有不同的花纹、外形，这取决于创建杯子时所规定的 &amp;ldquo;条件&amp;rdquo; ，整个过程比较像一个工厂利用模具创建商品一样&lt;/p>
+&lt;h3 id="3-类的代码">(3) 类的代码&lt;/h3>
+&lt;p>通过概念来理解没有通过代码直观，所以通过类的代码来观察
+如：&lt;/p>
+&lt;ul>
+&lt;li>创建一个水杯类&lt;/li>
+&lt;li>规定它的材料&lt;/li>
+&lt;li>规定它的外形&lt;/li>
+&lt;li>规定它的盖子&lt;/li>
+&lt;li>规定它的花纹&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-c++" data-lang="c++">&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">CupBase&lt;/span>{
+&lt;span style="color:#75715e">//材料
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">//0 代表玻璃 ， 1 代表塑料
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> Material;
+&lt;span style="color:#75715e">//外形
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">//0 代表马克杯，1 代表保温杯
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> Shape;
+&lt;span style="color:#75715e">//盖子
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">//0 代表没有盖子，1 代表有盖子
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> Cover;
+&lt;span style="color:#75715e">//花纹
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">//0 代表没有花纹，1 代表有花纹
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> Pattern;
+&lt;span style="color:#75715e">//液体
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">//0 代表没有液体 ，1 代表有水
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> Water;
+&lt;span style="color:#75715e">//构造函数
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> CupBase(){
+Material &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> ; &lt;span style="color:#75715e">//材料默认为玻璃
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> Shape &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> ; &lt;span style="color:#75715e">//外形默认为马克杯
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> Cover &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">；&lt;/span> &lt;span style="color:#75715e">//盖子默认没有盖子
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> Pattern &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">；&lt;/span> &lt;span style="color:#75715e">//花纹默认没有花纹
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> Water &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> ; &lt;span style="color:#75715e">//液体默认没有液体
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> };
+&lt;span style="color:#75715e">//析构函数
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#f92672">~&lt;/span>CupBase(){
+&lt;span style="color:#75715e">//释放空间
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> };
+&lt;span style="color:#75715e">//方法
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">//注水
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">WaterInjection&lt;/span>(){
+Water &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>;
+}
+&lt;span style="color:#75715e">//方法
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">//排水
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">drain&lt;/span>(){
+Water &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+}
+&lt;span style="color:#75715e">//方法
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">//查看有没有水
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">ShowWater&lt;/span>(){
+&lt;span style="color:#66d9ef">return&lt;/span> Water;
+}
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>分析上段代码：&lt;/p>
+&lt;ul>
+&lt;li>class 比较像定义一个结构体，在使用结构体时，一般把需要使用的数据变量放在里面，以便分组管理，这体现了封装的思想。在 C++ 类里同样体现封装的概念，通过对变量的统一管理，实现对事物进行抽象。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-c++" data-lang="c++">&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">CupBase&lt;/span>{
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>内部变量 是描述类的属性的方法，可以通过定义不同的变量来让类具有各种属性，并使它们通过不同的值来产生不同的意义。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-c++" data-lang="c++"> &lt;span style="color:#75715e">//材料
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">//0 代表玻璃 ， 1 代表塑料
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> Material;
+&lt;span style="color:#75715e">//外形
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">//0 代表马克杯，1 代表保温杯
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> Shape;
+&lt;span style="color:#75715e">//盖子
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">//0 代表没有盖子，1 代表有盖子
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> Cover;
+&lt;span style="color:#75715e">//花纹
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">//0 代表没有花纹，1 代表有花纹
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> Pattern;
+&lt;span style="color:#75715e">//液体
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">//0 代表没有液体 ，1 代表有水
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> Water;
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>构造函数 是类的基本方法，它是通过类来创建对象的媒介，通过构造函数 构造一个对象，在构造函数中可以对类的变量赋予不同的值，来控制构造的对象的属性&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-c++" data-lang="c++"> &lt;span style="color:#75715e">//构造函数
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> CupBase(){
+Material &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> ; &lt;span style="color:#75715e">//材料默认为玻璃
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> Shape &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> ; &lt;span style="color:#75715e">//外形默认为马克杯
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> Cover &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">；&lt;/span> &lt;span style="color:#75715e">//盖子默认没有盖子
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> Pattern &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">；&lt;/span> &lt;span style="color:#75715e">//花纹默认没有花纹
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> Water &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> ; &lt;span style="color:#75715e">//液体默认没有液体
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> };
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>析构函数 是类的基本方法，它是在对象生命周期结束时自动调用的，它与构造函数相反，它是销毁对象的函数，一般在里面释放掉对象的空间等。这里的例子中的空间都为基本类型，可以自动释放，所以析构函数为空&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-c++" data-lang="c++"> &lt;span style="color:#75715e">//析构函数
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#f92672">~&lt;/span>CupBase(){
+&lt;span style="color:#75715e">//释放空间
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> };
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>方法 是类的功能的表现，它是对象与外部的交互媒介，比如杯子可以加水和倒水，还可以看看杯子里是否有水，这时通过方法来操作和查看内部变量就能控制对象或者反馈给其他外部对象&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-c++" data-lang="c++">&lt;span style="color:#75715e">//方法
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">//注水
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">WaterInjection&lt;/span>(){
+Water &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>;
+}
+&lt;span style="color:#75715e">//方法
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">//排水
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">drain&lt;/span>(){
+Water &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+}
+&lt;span style="color:#75715e">//方法
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">//查看有没有水
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">ShowWater&lt;/span>(){
+&lt;span style="color:#66d9ef">return&lt;/span> Water;
+}
+&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>

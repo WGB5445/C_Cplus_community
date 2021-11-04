@@ -1,0 +1,347 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>C/C++ 中文社区 –</title><link>https://wgb5445.github.io/C_Cplus_community/docs/</link><description>Recent content on C/C++ 中文社区</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><atom:link href="https://wgb5445.github.io/C_Cplus_community/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: C++系列教程-1 入门</title><link>https://wgb5445.github.io/C_Cplus_community/docs/c++/%E5%85%A5%E9%97%A8/c++%E5%85%A5%E9%97%A8/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://wgb5445.github.io/C_Cplus_community/docs/c++/%E5%85%A5%E9%97%A8/c++%E5%85%A5%E9%97%A8/</guid><description>
+&lt;p>对于希望学习 C++ 的同学来说，需要有一些 c 语言的基础，例如：函数、 注释、结构体、if、switch、for、while、基本语法等等&lt;/p>
+&lt;h2 id="目的">目的&lt;/h2>
+&lt;p>初步了解 C++ 的代码以及类、对象的概念。&lt;/p>
+&lt;h2 id="步骤">步骤&lt;/h2>
+&lt;ol>
+&lt;li>了解 C++ 的特点&lt;/li>
+&lt;li>通过 Hello，world 程序了解 C++ 与 C 语言程序的不同&lt;/li>
+&lt;li>了解类的概念&lt;/li>
+&lt;li>了解类与对象的关系&lt;/li>
+&lt;li>通过类的代码了解 类是如何创建&lt;/li>
+&lt;li>通过类的代码了解 类的内部变量&lt;/li>
+&lt;li>通过类的代码了解 类的构造函数&lt;/li>
+&lt;li>通过类的代码了解 类的析构函数&lt;/li>
+&lt;li>通过类的代码了解 类的方法&lt;/li>
+&lt;/ol>
+&lt;h2 id="一c-的特点">一、C++ 的特点&lt;/h2>
+&lt;p>C++中最基本的要素是 &lt;strong>对象&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>对象&lt;/strong>是程序中一个具体的&lt;strong>事物&lt;/strong>，它可以表现为一个变量、一个结构体、一个函数。&lt;br>
+抛开C语言，抛开C++后，重新思考什么是面向对象
+可以说，面向对象是尽可能的用人的思考方式，来实现整个程序，例如，我需要设计一个水龙头程序：&lt;/p>
+&lt;ul>
+&lt;li>如果是&lt;strong>面向过程&lt;/strong>，我需要设计这个水龙头如果被拧，就尝试出水，被关掉就停止出水，按顺序的写完逻辑，然后去输入这个水龙头的状态，并输出。&lt;/li>
+&lt;li>如果是&lt;strong>面向对象&lt;/strong>，我们优先设计的是水龙头都有什么功能，它可以打开，可以关闭，可以出水，可以停止出水。我们发现，水龙头的功能就这么几种，包括了输入和输出，只要我们调用打开水龙头，水龙头就会去调用出水功能，调用关闭水龙头，水龙头就会停止出水&lt;/li>
+&lt;/ul>
+&lt;p>这样我们的逻辑就清晰了很多，只需要考虑水龙头什么时候要打开，我就在哪里调用打开函数。&lt;br>
+如果你还是觉得有些不知所措，那也没有关系，通过整个教程会让你理解并使用面向对象的思路。&lt;/p>
+&lt;h2 id="二helloworld">二、Hello,world！&lt;/h2>
+&lt;p>学习一门编程语言，第一步就是运行一个最简单的程序：打印一行 Hello,world&lt;/p>
+&lt;h3 id="1-c-的-helloworld">(1) C++ 的 hello,world&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-C++" data-lang="C++">&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;iostream&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>(){
+std&lt;span style="color:#f92672">::&lt;/span>cout&lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;Hello, world&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>;
+&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>通过编译生成后运行得到结果&lt;/p>
+&lt;pre tabindex="0">&lt;code>PS D:\code\C\build&amp;gt; .\helloworld.exe
+Hello, world!
+&lt;/code>&lt;/pre>&lt;h3 id="2-c-的-helloworld">(2) C 的 hello,world&lt;/h3>
+&lt;p>我们可以发现 C 程序和 C++ 程序的不同&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-c" data-lang="c">&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;stdio.h&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>(){
+printf(&lt;span style="color:#e6db74">&amp;#34;Hello, world&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>);
+&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>但是通过编译生成后运行得到结果可以相同&lt;/p>
+&lt;pre tabindex="0">&lt;code>PS D:\code\C\build&amp;gt; .\helloworld.exe
+Hello, world!
+&lt;/code>&lt;/pre>&lt;h3 id="3-分析-c-与-c-的-helloworld">(3) 分析 C 与 C++ 的 hello,world&lt;/h3>
+&lt;ol>
+&lt;li>
+&lt;p>首先，可以发现 include 所包含的头文件不同&lt;/p>
+&lt;ul>
+&lt;li>在 C 语言中的标准输入输出是由 stdio.h 这个文件提供的，所提供的函数包括 printf ， scanf 等等&lt;/li>
+&lt;li>在 C++ 中的标准输入和输出是由 iostream 这个文件提供，它提供的输入输出都是对象形式&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>随后对于输出语句，两种语言也有所不同&lt;/p>
+&lt;blockquote>
+&lt;p>(在 c++ 程序中包含 stdio.h ，是可以在 c++ 中使用，如 printf 等 c 语言的函数)&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>C 语言程序中使用的是 C 标准的 printf 输出函数&lt;/li>
+&lt;li>C++ 程序中使用的是 cout 对象的流式传输 ，将 &amp;laquo; 符号的右端数据输出到左端的对象中，再有 cout 对象输出至屏幕，同时如果是基本数据类型直接输入到 cout 时也可以打印其内部值，如：&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-c++" data-lang="c++">&lt;span style="color:#66d9ef">int&lt;/span> num &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">10&lt;/span>;
+std&lt;span style="color:#f92672">::&lt;/span>cout&lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> num;
+&lt;span style="color:#75715e">//输出的结果
+&lt;/span>&lt;span style="color:#75715e">// 10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>所以由此来看，C++ 是对 C 语言的补充，使用对象的特性使得函数逻辑更为清晰&lt;/p>
+&lt;h2 id="三对象与类">三、对象与类&lt;/h2>
+&lt;p>前面说过了什么是对象，也通过 hello,world 的例子知道了 std::cout 是对象，但是类是什么？对象和类又是什么关系？&lt;/p>
+&lt;h3 id="1-类">(1) 类&lt;/h3>
+&lt;p>类其实就是抽象概念，比如：&lt;br>
+我有两个杯子，他们都可以装水，他们都有花纹，都有杯盖，但是里面装的水不一样，一个是饮料一个是水&lt;br>
+这时候对于杯子，我就可以抽象的认为，可以装液体，可以有杯盖，可以有花纹的物品叫杯子，这个杯子的概念就称为 &amp;ldquo;杯子类&amp;rdquo;&lt;/p>
+&lt;h3 id="2--类与对象的关系">(2) 类与对象的关系&lt;/h3>
+&lt;p>类与对象的关系可以说概念和实际的区别。&lt;br>
+通过类创建对象，比如：
+用杯子类去创建两个杯子，他们有共同的性质，可以装液体可以有杯盖可以有花纹等等，他们可以一模一样，这两个杯子就成为对象，他们从一个概念变成了实物。&lt;br>
+当然，创建的两个杯子可以完全一样也可以有不同的花纹、外形，这取决于创建杯子时所规定的 &amp;ldquo;条件&amp;rdquo; ，整个过程比较像一个工厂利用模具创建商品一样&lt;/p>
+&lt;h3 id="3-类的代码">(3) 类的代码&lt;/h3>
+&lt;p>通过概念来理解没有通过代码直观，所以通过类的代码来观察
+如：&lt;/p>
+&lt;ul>
+&lt;li>创建一个水杯类&lt;/li>
+&lt;li>规定它的材料&lt;/li>
+&lt;li>规定它的外形&lt;/li>
+&lt;li>规定它的盖子&lt;/li>
+&lt;li>规定它的花纹&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-c++" data-lang="c++">&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">CupBase&lt;/span>{
+&lt;span style="color:#75715e">//材料
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">//0 代表玻璃 ， 1 代表塑料
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> Material;
+&lt;span style="color:#75715e">//外形
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">//0 代表马克杯，1 代表保温杯
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> Shape;
+&lt;span style="color:#75715e">//盖子
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">//0 代表没有盖子，1 代表有盖子
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> Cover;
+&lt;span style="color:#75715e">//花纹
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">//0 代表没有花纹，1 代表有花纹
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> Pattern;
+&lt;span style="color:#75715e">//液体
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">//0 代表没有液体 ，1 代表有水
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> Water;
+&lt;span style="color:#75715e">//构造函数
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> CupBase(){
+Material &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> ; &lt;span style="color:#75715e">//材料默认为玻璃
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> Shape &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> ; &lt;span style="color:#75715e">//外形默认为马克杯
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> Cover &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">；&lt;/span> &lt;span style="color:#75715e">//盖子默认没有盖子
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> Pattern &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">；&lt;/span> &lt;span style="color:#75715e">//花纹默认没有花纹
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> Water &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> ; &lt;span style="color:#75715e">//液体默认没有液体
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> };
+&lt;span style="color:#75715e">//析构函数
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#f92672">~&lt;/span>CupBase(){
+&lt;span style="color:#75715e">//释放空间
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> };
+&lt;span style="color:#75715e">//方法
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">//注水
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">WaterInjection&lt;/span>(){
+Water &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>;
+}
+&lt;span style="color:#75715e">//方法
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">//排水
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">drain&lt;/span>(){
+Water &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+}
+&lt;span style="color:#75715e">//方法
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">//查看有没有水
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">ShowWater&lt;/span>(){
+&lt;span style="color:#66d9ef">return&lt;/span> Water;
+}
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>分析上段代码：&lt;/p>
+&lt;ul>
+&lt;li>class 比较像定义一个结构体，在使用结构体时，一般把需要使用的数据变量放在里面，以便分组管理，这体现了封装的思想。在 C++ 类里同样体现封装的概念，通过对变量的统一管理，实现对事物进行抽象。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-c++" data-lang="c++">&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">CupBase&lt;/span>{
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>内部变量 是描述类的属性的方法，可以通过定义不同的变量来让类具有各种属性，并使它们通过不同的值来产生不同的意义。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-c++" data-lang="c++"> &lt;span style="color:#75715e">//材料
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">//0 代表玻璃 ， 1 代表塑料
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> Material;
+&lt;span style="color:#75715e">//外形
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">//0 代表马克杯，1 代表保温杯
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> Shape;
+&lt;span style="color:#75715e">//盖子
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">//0 代表没有盖子，1 代表有盖子
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> Cover;
+&lt;span style="color:#75715e">//花纹
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">//0 代表没有花纹，1 代表有花纹
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> Pattern;
+&lt;span style="color:#75715e">//液体
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">//0 代表没有液体 ，1 代表有水
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> Water;
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>构造函数 是类的基本方法，它是通过类来创建对象的媒介，通过构造函数 构造一个对象，在构造函数中可以对类的变量赋予不同的值，来控制构造的对象的属性&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-c++" data-lang="c++"> &lt;span style="color:#75715e">//构造函数
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> CupBase(){
+Material &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> ; &lt;span style="color:#75715e">//材料默认为玻璃
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> Shape &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> ; &lt;span style="color:#75715e">//外形默认为马克杯
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> Cover &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">；&lt;/span> &lt;span style="color:#75715e">//盖子默认没有盖子
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> Pattern &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">；&lt;/span> &lt;span style="color:#75715e">//花纹默认没有花纹
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> Water &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> ; &lt;span style="color:#75715e">//液体默认没有液体
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> };
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>析构函数 是类的基本方法，它是在对象生命周期结束时自动调用的，它与构造函数相反，它是销毁对象的函数，一般在里面释放掉对象的空间等。这里的例子中的空间都为基本类型，可以自动释放，所以析构函数为空&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-c++" data-lang="c++"> &lt;span style="color:#75715e">//析构函数
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#f92672">~&lt;/span>CupBase(){
+&lt;span style="color:#75715e">//释放空间
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> };
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>方法 是类的功能的表现，它是对象与外部的交互媒介，比如杯子可以加水和倒水，还可以看看杯子里是否有水，这时通过方法来操作和查看内部变量就能控制对象或者反馈给其他外部对象&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-c++" data-lang="c++">&lt;span style="color:#75715e">//方法
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">//注水
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">WaterInjection&lt;/span>(){
+Water &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>;
+}
+&lt;span style="color:#75715e">//方法
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">//排水
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">drain&lt;/span>(){
+Water &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+}
+&lt;span style="color:#75715e">//方法
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">//查看有没有水
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">ShowWater&lt;/span>(){
+&lt;span style="color:#66d9ef">return&lt;/span> Water;
+}
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: C/C++环境配置(vscode+mingw)</title><link>https://wgb5445.github.io/C_Cplus_community/docs/environment/c_c_plus%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://wgb5445.github.io/C_Cplus_community/docs/environment/c_c_plus%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</guid><description>
+&lt;h2 id="环境要求">环境要求：&lt;/h2>
+&lt;ul>
+&lt;li>64位 Windows 10 或 Windows 11 电脑&lt;/li>
+&lt;li>Vscode&lt;/li>
+&lt;li>Mingw&lt;/li>
+&lt;li>网络连接&lt;/li>
+&lt;/ul>
+&lt;h2 id="目的">目的&lt;/h2>
+&lt;p>在vscode上配置C/C++的编码、编译和调试环境，分别使用简单的GCC/G++方法和较为复杂但生产常用的CMake方法&lt;/p>
+&lt;ul>
+&lt;li>学习和使用C/C++的时候需要进行程序的编写运行和调试，常规IDE的体积较大，下载不便。&lt;/li>
+&lt;li>虽然IDE使用起来比较方便，但对于初学者来说，IDE中的很多功能都不需要，对于老手来说，很多功能可以自己配置，所以对于环境来说尽量要求轻便。&lt;/li>
+&lt;li>我们可以选择使用更为轻便的vscode进行编码、编译与调试，通过一些配置可以方便的实现IDE的大部分功能。&lt;/li>
+&lt;/ul>
+&lt;h2 id="步骤">步骤&lt;/h2>
+&lt;ol>
+&lt;li>下载mingw压缩包，解压并设置环境变量&lt;/li>
+&lt;li>下载cmake压缩包，解压并设置环境变量&lt;/li>
+&lt;li>下载vscode 安装&lt;/li>
+&lt;li>在vscode上安装C/C++、cmake、cmake tools、中文插件&lt;/li>
+&lt;li>创建文件夹并编写代码&lt;/li>
+&lt;li>设置使用gcc或g++编译、调试&lt;/li>
+&lt;li>另创建文件夹并使用CMake:Quick start 快速创建测试工程&lt;/li>
+&lt;li>设置使用cmake作为构建调试工具&lt;/li>
+&lt;li>总结两种方法的优劣&lt;/li>
+&lt;/ol>
+&lt;h2 id="一下载并设置mingw">一、下载并设置mingw&lt;/h2>
+&lt;h3 id="1-下载并解压">(1) 下载并解压&lt;/h3>
+&lt;p>  在&lt;a href="https://sourceforge.net/projects/mingw-w64/files/">mingw-w64&lt;/a>的下载页面找到&lt;strong>MinGW-W64 GCC-8.1.0&lt;/strong>下的&lt;strong>x86_64-posix-seh&lt;/strong>进行下载
+  下载后解压在一个可以长期保留的位置并记录下该文件夹下的bin文件路径&lt;br>
+&lt;strong>示例：&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-powershell" data-lang="powershell">D:\app\x86_64-8.1.0-release-posix-seh-rt_v6-rev0\mingw64\bin
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="2-设置环境变量">(2) 设置环境变量&lt;/h3>
+&lt;p>设置环境变量以便可以在系统全局找到mingw&lt;/p>
+&lt;ol>
+&lt;li>使用&lt;!-- raw HTML omitted -->Windows&lt;!-- raw HTML omitted --> + &lt;!-- raw HTML omitted -->R&lt;!-- raw HTML omitted -->键 打开 Windows运行窗口，输入 &lt;strong>sysdm.cpl&lt;/strong> 后选择 &lt;!-- raw HTML omitted -->高级&lt;!-- raw HTML omitted --> 选项卡中的 &lt;!-- raw HTML omitted -->环境变量&lt;!-- raw HTML omitted -->&lt;/li>
+&lt;li>在 &lt;!-- raw HTML omitted -->系统变量&lt;!-- raw HTML omitted --> 中找到 &lt;!-- raw HTML omitted -->Path&lt;!-- raw HTML omitted --> 变量 点击 &lt;!-- raw HTML omitted -->编辑&lt;!-- raw HTML omitted --> 按钮&lt;/li>
+&lt;li>在变量的最后一行后双击并添加刚才的mingw路径 ,添加完成后点击 &lt;!-- raw HTML omitted -->确定&lt;!-- raw HTML omitted -->&lt;/li>
+&lt;li>随后分别点击前几个页面的确定&lt;/li>
+&lt;li>使用&lt;!-- raw HTML omitted -->Windows&lt;!-- raw HTML omitted --> + &lt;!-- raw HTML omitted -->R&lt;!-- raw HTML omitted -->键 打开 Windows运行窗口，输入 &lt;strong>cmd&lt;/strong>， 后输入 gcc -v ,检查输出是否为刚才下载的mingw版本号&lt;br>
+&lt;strong>示例：&lt;/strong>&lt;/li>
+&lt;/ol>
+&lt;pre tabindex="0">&lt;code>C:\Users\WGB&amp;gt;gcc -v
+Using built-in specs.
+COLLECT_GCC=gcc
+COLLECT_LTO_WRAPPER=D:/app/x86_64-8.1.0-release-posix-seh-rt_v6-rev0/mingw64/bin/../libexec/gcc/x86_64-w64-mingw32/8.1.0/lto-wrapper.exe
+Target: x86_64-w64-mingw32
+Configured with: ../../../src/gcc-8.1.0/configure --host=x86_64-w64-mingw32 --build=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --prefix=/mingw64 --with-sysroot=/c/mingw810/x86_64-810-posix-seh-rt_v6-rev0/mingw64 --enable-shared --enable-static --disable-multilib --enable-languages=c,c++,fortran,lto --enable-libstdcxx-time=yes --enable-threads=posix --enable-libgomp --enable-libatomic --enable-lto --enable-graphite --enable-checking=release --enable-fully-dynamic-string --enable-version-specific-runtime-libs --disable-libstdcxx-pch --disable-libstdcxx-debug --enable-bootstrap --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-gnu-as --with-gnu-ld --with-arch=nocona --with-tune=core2 --with-libiconv --with-system-zlib --with-gmp=/c/mingw810/prerequisites/x86_64-w64-mingw32-static --with-mpfr=/c/mingw810/prerequisites/x86_64-w64-mingw32-static --with-mpc=/c/mingw810/prerequisites/x86_64-w64-mingw32-static --with-isl=/c/mingw810/prerequisites/x86_64-w64-mingw32-static --with-pkgversion='x86_64-posix-seh-rev0, Built by MinGW-W64 project' --with-bugurl=https://sourceforge.net/projects/mingw-w64 CFLAGS='-O2 -pipe -fno-ident -I/c/mingw810/x86_64-810-posix-seh-rt_v6-rev0/mingw64/opt/include -I/c/mingw810/prerequisites/x86_64-zlib-static/include -I/c/mingw810/prerequisites/x86_64-w64-mingw32-static/include' CXXFLAGS='-O2 -pipe -fno-ident -I/c/mingw810/x86_64-810-posix-seh-rt_v6-rev0/mingw64/opt/include -I/c/mingw810/prerequisites/x86_64-zlib-static/include -I/c/mingw810/prerequisites/x86_64-w64-mingw32-static/include' CPPFLAGS=' -I/c/mingw810/x86_64-810-posix-seh-rt_v6-rev0/mingw64/opt/include -I/c/mingw810/prerequisites/x86_64-zlib-static/include -I/c/mingw810/prerequisites/x86_64-w64-mingw32-static/include' LDFLAGS='-pipe -fno-ident -L/c/mingw810/x86_64-810-posix-seh-rt_v6-rev0/mingw64/opt/lib -L/c/mingw810/prerequisites/x86_64-zlib-static/lib -L/c/mingw810/prerequisites/x86_64-w64-mingw32-static/lib '
+Thread model: posix
+gcc version 8.1.0 (x86_64-posix-seh-rev0, Built by MinGW-W64 project)
+&lt;/code>&lt;/pre>&lt;h2 id="二下载并设置cmake">二、下载并设置cmake&lt;/h2>
+&lt;h3 id="1-下载并解压-1">(1) 下载并解压&lt;/h3>
+&lt;p>  在&lt;a href="https://cmake.org/download/">CMake官网&lt;/a>中找到Windows x64 ZIP 并下载
+  下载后解压在一个可以长期保留的位置并记录下该文件夹下的bin文件路径&lt;br>
+&lt;strong>示例：&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-powershell" data-lang="powershell">D:\app\cmake-3.22.0-rc2-windows-x86_64\bin
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="2-设置环境变量-1">(2) 设置环境变量&lt;/h3>
+&lt;p>设置环境变量以便可以在系统全局找到CMake&lt;/p>
+&lt;ol>
+&lt;li>使用&lt;!-- raw HTML omitted -->Windows&lt;!-- raw HTML omitted --> + &lt;!-- raw HTML omitted -->R&lt;!-- raw HTML omitted -->键 打开 Windows运行窗口，输入 &lt;strong>sysdm.cpl&lt;/strong> 后选择 &lt;!-- raw HTML omitted -->高级&lt;!-- raw HTML omitted --> 选项卡中的 &lt;!-- raw HTML omitted -->环境变量&lt;!-- raw HTML omitted -->&lt;/li>
+&lt;li>在 &lt;!-- raw HTML omitted -->系统变量&lt;!-- raw HTML omitted --> 中找到 &lt;!-- raw HTML omitted -->Path&lt;!-- raw HTML omitted --> 变量 点击 &lt;!-- raw HTML omitted -->编辑&lt;!-- raw HTML omitted --> 按钮&lt;/li>
+&lt;li>在变量的最后一行后双击并添加刚才的CMake路径 ,添加完成后点击 &lt;!-- raw HTML omitted -->确定&lt;!-- raw HTML omitted -->&lt;/li>
+&lt;li>随后分别点击前几个页面的确定&lt;/li>
+&lt;li>使用&lt;!-- raw HTML omitted -->Windows&lt;!-- raw HTML omitted --> + &lt;!-- raw HTML omitted -->R&lt;!-- raw HTML omitted -->键 打开 Windows运行窗口，输入 &lt;strong>cmd&lt;/strong>， 后输入 cmake &amp;ndash;version ,检查输出是否为刚才下载的CMake版本号&lt;/li>
+&lt;/ol>
+&lt;p>&lt;strong>示例：&lt;/strong>&lt;/p>
+&lt;pre tabindex="0">&lt;code>C:\Users\WGB&amp;gt;cmake --version
+cmake version 3.22.0-rc2
+CMake suite maintained and supported by Kitware (kitware.com/cmake).
+&lt;/code>&lt;/pre>&lt;h2 id="三下载并解压vscode">三、下载并解压vscode&lt;/h2>
+&lt;h3 id="1-下载">(1) 下载&lt;/h3>
+&lt;p>  在&lt;a href="https://code.visualstudio.com/Download">vscode 官网&lt;/a>进行下载，可以选择64bit zip包下载，可以免去安装过程&lt;/p>
+&lt;h3 id="2-解压">(2) 解压&lt;/h3>
+&lt;p>  解压到可以长期保留的位置后对文件夹内的vscode.exe 创建快捷方式并拖到自己想要的地方，方便以后快捷打开&lt;/p>
+&lt;h2 id="四安装vscode插件">四、安装vscode插件&lt;/h2>
+&lt;h3 id="1-打开vscode的插件页面">(1) 打开vscode的插件页面&lt;/h3>
+&lt;p>  可以使用快捷键 &lt;!-- raw HTML omitted -->Ctrl&lt;!-- raw HTML omitted --> + &lt;!-- raw HTML omitted -->Shift&lt;!-- raw HTML omitted --> + &lt;!-- raw HTML omitted -->X&lt;!-- raw HTML omitted --> 打开插件页面搜索并安装如下几个插件&lt;/p>
+&lt;ul>
+&lt;li>C/C++ C、C++支持&lt;/li>
+&lt;li>Chinese 中文支持&lt;/li>
+&lt;li>CMake CMake支持&lt;/li>
+&lt;li>CMake Tools CMake工具套装
+  成功安装后再次打开时，整个vscode变为中文&lt;/li>
+&lt;/ul>
+&lt;h2 id="五使用gccg配置cc环境">五、使用GCC、G++配置C/C++环境&lt;/h2>
+&lt;p>使用GCC、G++配置环境比较适合较小的工程，一般作为验证程序的编写调试等等&lt;/p>
+&lt;h3 id="1-新建文件夹和代码">(1) 新建文件夹和代码&lt;/h3>
+&lt;ol>
+&lt;li>在电脑中新建一个文件夹并通过vscode的打开文件夹功能打开&lt;/li>
+&lt;li>在文件夹中创建一个 hello.c 文件，并填入一些简单的代码&lt;/li>
+&lt;/ol>
+&lt;pre tabindex="0">&lt;code>#include&amp;lt;stdio.h&amp;gt;
+int main()
+{
+printf(&amp;quot;hello,world\n&amp;quot;);
+}
+&lt;/code>&lt;/pre>&lt;ol start="3">
+&lt;li>创建后整个目录结构如下&lt;/li>
+&lt;/ol>
+&lt;pre tabindex="0">&lt;code>.
+└── hello.c
+&lt;/code>&lt;/pre>&lt;h3 id="2-配置mingw的路径">(2) 配置mingw的路径&lt;/h3>
+&lt;ol>
+&lt;li>通过&lt;!-- raw HTML omitted -->Ctrl&lt;!-- raw HTML omitted --> + &lt;!-- raw HTML omitted -->Shift&lt;!-- raw HTML omitted --> + &lt;!-- raw HTML omitted -->P&lt;!-- raw HTML omitted -->调出选项栏后，输入C/C++:Edit Configurations (UI) 并选择 &lt;!-- raw HTML omitted -->C/C++:Edit Configurations (UI)&lt;!-- raw HTML omitted -->&lt;/li>
+&lt;li>在编译器路径下的输入框中填入mingw64的gcc.exe的路径&lt;br>
+示例:&lt;/li>
+&lt;/ol>
+&lt;pre tabindex="0">&lt;code>D:\app\x86_64-8.1.0-release-posix-seh-rt_v6-rev0\mingw64\bin\gcc.exe
+&lt;/code>&lt;/pre>&lt;ol start="3">
+&lt;li>选择 IntelliSense 模式 为 windows-gcc-x64&lt;/li>
+&lt;/ol>
+&lt;h3 id="3-配置构建任务">(3) 配置构建任务&lt;/h3>
+&lt;p>通过配置构建任务可以方便的进行构建生成可执行文件，对于构建选项可以在生成的构建任务文件(.vscode/tasks.json)中修改&lt;/p>
+&lt;ol>
+&lt;li>随后将页面选为编辑 .c 文件的页面点击 工具栏上的&lt;!-- raw HTML omitted -->终端&lt;!-- raw HTML omitted -->(快捷键 &lt;!-- raw HTML omitted -->Alt&lt;!-- raw HTML omitted --> + &lt;!-- raw HTML omitted -->T&lt;!-- raw HTML omitted --> )&lt;/li>
+&lt;li>在弹出的菜单中选择 &lt;!-- raw HTML omitted -->配置默认生成任务&lt;!-- raw HTML omitted --> ，然后在出现的选项栏中选择刚才填入路径的 &lt;!-- raw HTML omitted -->gcc.exe 生成活动文件&lt;!-- raw HTML omitted -->&lt;/li>
+&lt;li>点击工具栏上的 &lt;!-- raw HTML omitted -->终端&lt;!-- raw HTML omitted -->(快捷键 &lt;!-- raw HTML omitted -->Alt&lt;!-- raw HTML omitted --> + &lt;!-- raw HTML omitted -->T&lt;!-- raw HTML omitted --> )，再点击&lt;!-- raw HTML omitted -->运行生成任务&lt;!-- raw HTML omitted -->来构建可执行文件 ，或使用快捷键&lt;!-- raw HTML omitted -->Ctrl&lt;!-- raw HTML omitted --> + &lt;!-- raw HTML omitted -->Shift&lt;!-- raw HTML omitted --> + &lt;!-- raw HTML omitted -->B&lt;!-- raw HTML omitted --> 直接构建可执行文件&lt;br>
+随后就可以看到在当前目录已经成功生成了执行文件hello.exe&lt;/li>
+&lt;li>可以在cmd命令行或者终端中通过命令 ./hello.exe 运行，并打印 Hello, world!&lt;/li>
+&lt;/ol>
+&lt;h3 id="4-配置调试">(4) 配置调试&lt;/h3>
+&lt;p>通过配置调试可以方便的打断点调试等&lt;/p>
+&lt;ol>
+&lt;li>将页面选为编辑 .c 文件的页面并点击 工具栏上的&lt;!-- raw HTML omitted -->运行&lt;!-- raw HTML omitted -->(快捷键 &lt;!-- raw HTML omitted -->Alt&lt;!-- raw HTML omitted --> + &lt;!-- raw HTML omitted -->R&lt;!-- raw HTML omitted --> )&lt;/li>
+&lt;li>在弹出的菜单中选择&lt;!-- raw HTML omitted -->添加配置&lt;!-- raw HTML omitted -->，随后在出现的选项栏中选择&lt;!-- raw HTML omitted -->C++(GDB/LLDB)&lt;!-- raw HTML omitted -->&lt;/li>
+&lt;li>随后页面会切换到调试模式，并显示调试的配置文件，默认不需要更改，切换回.c文件并在Print语句前打上红色断点&lt;/li>
+&lt;li>点击工具栏上的&lt;!-- raw HTML omitted -->运行&lt;!-- raw HTML omitted -->(快捷键 &lt;!-- raw HTML omitted -->Alt&lt;!-- raw HTML omitted --> + &lt;!-- raw HTML omitted -->R&lt;!-- raw HTML omitted --> )&lt;/li>
+&lt;li>在随后的菜单中点击&lt;!-- raw HTML omitted -->启动调试&lt;!-- raw HTML omitted -->，或直接点击 &lt;!-- raw HTML omitted -->F5&lt;!-- raw HTML omitted -->按键进行调试&lt;/li>
+&lt;li>随后页面跳转为调试模式并在断点处停止&lt;/li>
+&lt;/ol>
+&lt;h2 id="六使用cmake编译cc">六、使用CMake编译C/C++&lt;/h2>
+&lt;p>在一般的工程中会存在许多的源文件，通过CMake可以方便的构建较大工程，同时具有一定的跨平台能力，更为高级的操作可以细致查看CMake插件文档和CMake官方文档&lt;/p>
+&lt;h3 id="1-使用cmake构建">(1) 使用CMake构建&lt;/h3>
+&lt;ol>
+&lt;li>重新新建一个文件夹，并使用vscode进行打开操作&lt;/li>
+&lt;li>通过&lt;!-- raw HTML omitted -->Ctrl&lt;!-- raw HTML omitted --> + &lt;!-- raw HTML omitted -->Shift&lt;!-- raw HTML omitted --> + &lt;!-- raw HTML omitted -->P&lt;!-- raw HTML omitted -->调出选项栏后，输入CMake:Quick start 并选择 &lt;!-- raw HTML omitted -->CMake:Quick start&lt;!-- raw HTML omitted -->&lt;/li>
+&lt;li>随后输入新建的工程名称，这里选择填写 hello 作为工程名称&lt;/li>
+&lt;li>随后选择生成的文件类型，选择 &lt;!-- raw HTML omitted -->Executable&lt;!-- raw HTML omitted -->&lt;/li>
+&lt;li>这时在目录中自动创建CMakeLists.txt 和 main.c 文件&lt;/li>
+&lt;li>可以使用&lt;!-- raw HTML omitted -->Ctrl&lt;!-- raw HTML omitted --> + &lt;!-- raw HTML omitted -->Shift&lt;!-- raw HTML omitted --> + &lt;!-- raw HTML omitted -->P&lt;!-- raw HTML omitted -->调出选项栏后，输入CMake:Build 并选择 &lt;!-- raw HTML omitted -->CMake:Build&lt;!-- raw HTML omitted -->生成可执行文件，也可以通过快捷键&lt;!-- raw HTML omitted -->F7&lt;!-- raw HTML omitted --> 生成，生成的文件在./build/ 下 ，生成名称为第3步输入的工程名&lt;/li>
+&lt;li>可以在cmd命令行或者终端中通过命令 ./hello.exe 运行，并打印 Hello, world!&lt;/li>
+&lt;/ol>
+&lt;h3 id="2-使用cmake调试">(2) 使用CMake调试&lt;/h3>
+&lt;ol>
+&lt;li>可以使用&lt;!-- raw HTML omitted -->Ctrl&lt;!-- raw HTML omitted --> + &lt;!-- raw HTML omitted -->Shift&lt;!-- raw HTML omitted --> + &lt;!-- raw HTML omitted -->P&lt;!-- raw HTML omitted -->调出选项栏后，输入CMake:Debug 并选择 &lt;!-- raw HTML omitted -->CMake:Debug&lt;!-- raw HTML omitted -->进入调试界面，也可以通过快捷键&lt;!-- raw HTML omitted -->Ctrl&lt;!-- raw HTML omitted --> + &lt;!-- raw HTML omitted -->F5&lt;!-- raw HTML omitted --> 调试，同样可以先打断点进行调试&lt;/li>
+&lt;/ol>
+&lt;h2 id="五总结">五、总结&lt;/h2>
+&lt;p>  两种方法都可以对C/C++程序进行构建调试，其中GCC的方法适用于小型工程，对于稍大的工程使用CMake更为方便，但是CMake的功能对于初学者来说可能会造成困扰，不能很好的添加源文件，但是既然开始学习就应该选择更为广泛使用的工具，所以推荐大家使用CMake，&lt;/p></description></item></channel></rss>
